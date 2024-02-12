@@ -3,6 +3,13 @@ from ProcentView import ProcentView
 from main import PassGenerator
 from ProcentInfo import ProcentInfo
 import pyperclip
+from datetime import datetime
+
+def SaveFile():
+    ThisTime = datetime.now()
+    FileName = f'{ThisTime.year} {ThisTime.month} {ThisTime.day} {ThisTime.hour} {ThisTime.minute} {ThisTime.second}'
+    with open(f'{FileName}.txt',"w") as PasswordFile:
+        PasswordFile.write(PassGenerator.password)
 
 def CopyPassword():
     pyperclip.copy(entryPass.get())
@@ -209,8 +216,7 @@ ExtraOptionsCaps = None
 ExtraOptionsSymbols = None
 BtnCopy = Button(canvas,text="Copy",font=("Bips",21),bg="white",fg="black",command=CopyPassword)
 BtnCopy.place(x=80,y=90)
-BtnSave = Button(canvas,text="Save to file",font=("Bips",21),bg="white",fg="black")
+BtnSave = Button(canvas,text="Save to file",font=("Bips",21),bg="white",fg="black",command=SaveFile)
 BtnSave.place(x=780,y=90)
-
 
 window.mainloop()
