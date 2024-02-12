@@ -5,9 +5,10 @@ from ProcentInfo import ProcentInfo
 import pyperclip
 from datetime import datetime
 
+#Saving file function
 def SaveFile():
-    ThisTime = datetime.now()
-    FileName = f'{ThisTime.year} {ThisTime.month} {ThisTime.day} {ThisTime.hour} {ThisTime.minute} {ThisTime.second}'
+    this_time = datetime.now()
+    FileName = f'{this_time.year} {this_time.month} {this_time.day} {this_time.hour} {this_time.minute} {this_time.second}'
     with open(f'{FileName}.txt',"w") as PasswordFile:
         PasswordFile.write(PassGenerator.password)
 
